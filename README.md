@@ -6,6 +6,7 @@ React Ribbon Component
 
 With Sub Components
 
+```
 <RibbonTabPage />
 <RibbonGroup />
 <RibbonColumn />
@@ -25,9 +26,11 @@ With Sub Components
 <ButtonWithSmallImageWithText />
 <DropDownWithSmallImageWithText />
 <Checkbox />
+```
 
 MainRibbon properties
-- property "palette" for theming, example: 
+- property "palette" for theming, example:
+```
 {
     {
         main: '#2a569a',
@@ -38,7 +41,7 @@ MainRibbon properties
         backStageText: 'brown',
     }
 }
-
+```
 - property currentTab int
 - font
 - quickAccessButtons
