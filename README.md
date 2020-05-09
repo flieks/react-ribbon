@@ -6,6 +6,7 @@ React Ribbon Component
 
 With Sub Components
 
+```
 <RibbonTabPage />
 <RibbonGroup />
 <RibbonColumn />
@@ -25,6 +26,7 @@ With Sub Components
 <ButtonWithSmallImageWithText />
 <DropDownWithSmallImageWithText />
 <Checkbox />
+```
 
 MainRibbon properties
 - text (title)
