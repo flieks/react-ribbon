@@ -1,6 +1,6 @@
 {
     "name": "@flieks/react-ribbon",
-    "version": "0.1.1",
+    "version": "0.8.0",
     "license": "MIT",
     "author": "Felix De Lille <info.appbuilders.be> (https://github.com/flieks)",
     "main": "./build/index.js",
@@ -8,6 +8,10 @@
         "react",
         "ribbon"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/flieks/react-ribbon.git"
+    },
     "devDependencies": {
         "@babel/core": "^7.7.5",
         "@babel/preset-env": "^7.7.6",

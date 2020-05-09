@@ -27,6 +27,7 @@ With Sub Components
 <Checkbox />
 
 MainRibbon properties
+- text (title)
 - property "palette" for theming, example: 
 {
     {
@@ -38,15 +39,22 @@ MainRibbon properties
         backStageText: 'brown',
     }
 }
-
-- property currentTab int
-- font
-- quickAccessButtons
-- tabEvents
+- currentTab - int
+- font - string (ex `normal 11px 'Open Sans'`)
+- quickAccessButtons - object ex
+```
+[
+  <ButtonWithSmallImage
+       image={save} key="quickaccess1" />,
+  <DropDownWithSmallImage
+       image={undo} key="quickaccess2" />,
+  <DropDownWithSmallImage
+       image={redo} key="quickaccess3" />
+]
+```
+- tabEvents - (onClick to get new tab index)
 - fileButtonEvents
 * children of type RibbonTabPage
-
-
 
 RibbonTabPage properties
 - text (title)
