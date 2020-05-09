@@ -1,0 +1,20 @@
+.button{
+    min-width: 3rem;
+    height: 5rem;
+    display: inline-block;
+    border: 1px solid #dadada;
+    margin: 0 .5rem 0 .5rem;
+    padding: .5rem;
+}
+
+.name{
+    text-align: center;
+}
+
+.image {
+    text-align: center;
+    margin: 0 auto .5rem auto;
+    height: 55%;
+    background-position: center center; /* Положение фона */
+    background-repeat: no-repeat; /* Отменяем повторение фона */
+}

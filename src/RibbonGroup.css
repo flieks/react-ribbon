@@ -1,0 +1,29 @@
+.group {
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: .1rem;
+    margin-left: .1rem;
+    padding: 0 .5rem 0 .5rem;
+}
+
+.content {
+    height: 85%;
+}
+
+.name {
+    text-align: center;
+    margin: auto;
+}
+
+.tabLable, .activeTabLable, .backstageViewButton{
+    display: inline-block;
+    padding: .2rem 1rem .2rem 1rem;
+    margin-right: .2rem;
+}
+
+.activeTabLable{
+    border: 1px solid #dadada;
+    border-bottom-color: white;
+    color: #a4373a;
+}

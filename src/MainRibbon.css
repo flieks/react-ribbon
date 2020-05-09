@@ -1,0 +1,19 @@
+.tabLable, .activeTabLable, .backstageViewButton{
+    display: inline-block;
+    padding: .2rem 1rem .2rem 1rem;
+    margin-right: .2rem;
+    min-height: 1rem;
+    vertical-align: bottom;
+}
+
+.activeTabLable{
+    border: 1px solid #dadada;
+    border-bottom-color: white;
+    color: #a4373a;
+}
+
+.backstageViewButton{
+    color: white;
+    background: #a4373a;
+    margin-bottom: 1px;
+}
