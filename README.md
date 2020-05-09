@@ -1,5 +1,7 @@
 React Ribbon Component
 
+![](images/RibbonExample.jpg)
+
 <MainRibbon />
 
 With Sub Components
@@ -43,6 +45,8 @@ MainRibbon properties
 - tabEvents
 - fileButtonEvents
 * children of type RibbonTabPage
+
+
 
 RibbonTabPage properties
 - text (title)
