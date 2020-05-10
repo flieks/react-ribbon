@@ -10,13 +10,12 @@ Demo: [Live styleguide](https://flieks.github.io/react-ribbon/)
      currentTab={activeTab}
      tabEvents={{ onClick: (i) => { setActiveTab(i) } }}
      quickAccessButtons={[
-            <ButtonWithSmallImage
-                image={save} key="quickaccess1" />
+            <ButtonWithSmallImage image={save} key="quickaccess1" />
      ]}
      >
       <RibbonTabPage text="HOME">
           <RibbonGroup text="Glossary">
-               // ...children [example](https://flieks.github.io/react-ribbon/)
+               // ...children (check styleguide example)
           </RibbonGroup>
        </RibbonTabPage>
  </MainRibbon>
@@ -53,6 +52,7 @@ With Sub Components
 MainRibbon properties
 - text (title)
 - property "palette" for theming, example: 
+```
 {
     {
         main: '#2a569a',
@@ -63,6 +63,7 @@ MainRibbon properties
         backStageText: 'brown',
     }
 }
+```
 - currentTab - int
 - font - string (ex `normal 11px 'Open Sans'`)
 - quickAccessButtons - object ex
