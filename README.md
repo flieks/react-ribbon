@@ -1,8 +1,30 @@
 React Ribbon Component
 
+Demo: [Live styleguide](https://flieks.github.io/react-ribbon/)
+
 ![](images/RibbonExample.jpg)
 
+```
+ <MainRibbon
+     text="Ribbon Title"
+     currentTab={activeTab}
+     tabEvents={{ onClick: (i) => { setActiveTab(i) } }}
+     quickAccessButtons={[
+            <ButtonWithSmallImage
+                image={save} key="quickaccess1" />
+     ]}
+     >
+      <RibbonTabPage text="HOME">
+          <RibbonGroup text="Glossary">
+               // ...children [example](https://flieks.github.io/react-ribbon/)
+          </RibbonGroup>
+       </RibbonTabPage>
+ </MainRibbon>
+```
+
+```
 <MainRibbon />
+```
 
 With Sub Components
 
@@ -12,19 +34,19 @@ With Sub Components
 <RibbonColumn />
 <RibbonRow />
 <Separator />
+<DropDownWithSmallImageWithText />
 <DropDownWithLargeImageWithText />
-<ComboBox />
+<ButtonWithSmallImageWithText />
 <ButtonWithLargeImageWithText />
+<ButtonWithSmallImage />
 <SplitButton />
+<SplitButtonWithSmallImage />
 <PopupMenu />
 <MenuItem />
+<ComboBox />
 <MenuDropDown />
 <MenuSeparator />
-<ButtonWithSmallImage />
 <DropDownWithSmallImage />
-<SplitButtonWithSmallImage />
-<ButtonWithSmallImageWithText />
-<DropDownWithSmallImageWithText />
 <Checkbox />
 ```
 
@@ -64,7 +86,6 @@ RibbonTabPage properties
 
 RibbonGroup properties
 - text (title)
-* children of type SplitButton, RibbonColumn, RibbonRow, DropDownWithLargeImageWithText, Separator
+* children of type SplitButton, RibbonColumn, RibbonRow, DropDownWithLargeImageWithText, Separator, CheckBox, DropDown, ButtonWithSmallImageWithText, ButtonWithLargeImageWithText, PopupMenu, MenuItem, MenuToggleItem, MenuSeparator, MenuDropDown
 
-Group controls: (todo)
-- check styleguide example for example
+RibbonGroup Children: (to document!)

@@ -29,7 +29,7 @@ export default class MainRibbon extends Component {
 
     const styleObj = {
       font,
-      backgroundColor: palette.main,
+      backgroundColor: palette.main || "#2a569a",
       cursor: 'default',
       height: '100%',
     }

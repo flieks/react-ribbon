@@ -1,32 +1,35 @@
 Example Ribbon:
 
 ```js
-    import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import MainRibbon from '../../MainRibbon'
-import RibbonTabPage from '../../RibbonTabPage'
-import RibbonGroup from '../../RibbonGroup'
-import RibbonColumn from '../../Column'
-import RibbonRow from '../../Row'
-import Separator from '../../Separator'
-import DropDownWithLargeImageWithText from '../../LargeImageWithText/DropDown'
-import ComboBox from '../../ComboBox'
-import ButtonWithLargeImageWithText from '../../LargeImageWithText/Button'
-import SplitButton from '../../LargeImageWithText/SplitButton'
-import PopupMenu from '../../PopupMenu/PopupMenu'
-import MenuItem from '../../PopupMenu/MenuItem'
-import MenuDropDown from '../../PopupMenu/MenuDropDown'
-import MenuSeparator from '../../PopupMenu/MenuSeparator'
-import ButtonWithSmallImage from '../../SmallImage/Button'
-import DropDownWithSmallImage from '../../SmallImage/DropDown'
-import SplitButtonWithSmallImage from '../../SmallImage/SplitButton'
-import ButtonWithSmallImageWithText from '../../SmallImageWithText/Button'
-import DropDownWithSmallImageWithText from '../../SmallImageWithText/DropDown'
-import Checkbox from '../../Checkbox'
+import { 
+    MainRibbon,
+    RibbonTabPage,
+    RibbonGroup,
+    RibbonColumn,
+    RibbonRow,
+    Separator,
+    DropDownWithLargeImageWithText,
+    DropDownWithSmallImageWithText,
+    DropDownWithSmallImage,
+    ComboBox,
+    SplitButton,
+    SplitButtonWithSmallImage,
+    ButtonWithLargeImageWithText,
+    ButtonWithSmallImageWithText,
+    ButtonWithSmallImage,
+    PopupMenu,
+    MenuItem,
+    MenuDropDown,
+    MenuSeparator,
+    Checkbox
+ } from '../../'
+
 import BackStageView from '../../BackStage/View'
 import BackStagePage from '../../BackStage/Page'
-// import deepEqual from 'deep-equal'
 
+// all icons used in this example:
 import save from './icons/homeTab/ic_light_save.png'
 import undo from './icons/homeTab/ic_undo.png'
 import redo from './icons/homeTab/ic_redo.png'
@@ -68,8 +71,6 @@ import border11 from './icons/homeTab/ic_border_11.png'
 import border12 from './icons/homeTab/ic_border_12.png'
 import border13 from './icons/homeTab/ic_border_13.png'
 
-
-// TAB HOME:
 import pasteBranche from './icons/homeTab/branche_paste_16.png'
 import pasteRows from './icons/homeTab/paste_rows_16.png'
 import pasteSpecial from './icons/homeTab/paste_special_16x16.png'
@@ -156,29 +157,19 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
     const propertyLocal = () => { console.log("propertyLocal") }
 
 <MainRibbon text={'Ribbon Title'}
-        palette={
-            {
-                main: '#2a569a',
-                tabBody: '#efefef',
-                inActiveTab: 'white',
-                backStageButton: 'yellow',
-                activeBackStageButton: 'blue',
-                backStageText: 'brown',
-            }
-        }
         currentTab={activeTab}
         font="normal 11px 'Open Sans'"
         quickAccessButtons={[
             <ButtonWithSmallImage
                 image={save} key="quickaccess1" />,
-            <DropDownWithSmallImage
+            <DropDownWithSmallImage whitearrow
                 image={undo} key="quickaccess2" />,
-            <DropDownWithSmallImage
+            <DropDownWithSmallImage whitearrow
                 image={redo} key="quickaccess3" />]}
         tabEvents={{ onClick: (i) => { setActiveTab(i) } }}
         fileButtonEvents={{
             onClick: () => {
-                console.log("click fileB")
+                console.log("click fileButtonEvents")
             }
         }}
     >
@@ -426,7 +417,7 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
             </DropDownWithLargeImageWithText>
             <Separator />
             <SplitButton text="Insert" image={insert}
-          //    active={state.editInsertActive}
+            //    active={state.editInsertActive}
             //   arrowEvents={{onClick: run(editInsertClick), onBlur: blur('editInsertActive')}}
               >
               <PopupMenu>
@@ -549,6 +540,13 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
         </RibbonTabPage>
 
         <RibbonTabPage text="INSERT">
+            <RibbonGroup text="Navigate">
+         <RibbonColumn>
+              <Checkbox text={'Option'} enabled={false} />
+              <Checkbox text={'Total'} />
+              <Checkbox text={'Force'} enabled={false} />
+            </RibbonColumn>
+            </RibbonGroup>
         </RibbonTabPage>
 
         <RibbonTabPage text="MISC">

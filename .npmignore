@@ -3,4 +3,4 @@ node_modules
 images
 src/styleguide
 docs
-build
+styleguide.config.js
