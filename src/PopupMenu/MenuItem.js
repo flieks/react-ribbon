@@ -2,35 +2,22 @@ import styles from './index.css'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class MenuItem extends Component {
-  shouldComponentUpdate (nextProps) {
-    let prevString = JSON.stringify(this.props)
-    let nextString = JSON.stringify(nextProps)
-    return prevString !== nextString
-  }
-  
-  render () {
-    window.ribbonitem += 1
-    
-    const isVisible = this.props.visible
-    const isEnable = this.props.enabled
-    const text = this.props.text
-    const hotKey = this.props.hotKey
-    const backgroundImage = 'url(' + this.props.image + ')'
+export default function MenuItem(props) { 
+    const isVisible = props.visible
+    const isEnable = props.enabled
+    const text = props.text
+    const hotKey = props.hotKey
+    const backgroundImage = 'url(' + props.image + ')'
 
-    // const events = isEnable ? this.props.events : {}
-    // {...events}
-    if (!isVisible) {
-      return null
-    }
     return (
-      <div className={styles.menuItem + ' ' + (isEnable ? '' : styles.enable)} onClick={() => {
-        if(this.props.onClick) {
-          this.props.onClick();
-        }
-      }}>
-        {this.props.image && <div className={styles.image} style={{backgroundImage}} />}
-        <div className={styles.text} style={{marginLeft: !this.props.image && '10px'}}>
+      <div className={styles.menuItem + ' ' + (isEnable ? '' : styles.enable)} 
+        onMouseDown={() => {
+          if(props.onClick) {
+            props.onClick();
+          }
+        }}>
+        {props.image && <div className={styles.image} style={{backgroundImage}} />}
+        <div className={styles.text} style={{marginLeft: !props.image && '10px'}}>
           {text}
         </div>
         <div className={styles.hotKey}>
@@ -39,7 +26,6 @@ export default class MenuItem extends Component {
         <div className={styles.arrow} style={{visibility: 'hidden'}} />
       </div>
     )
-  }
 }
 
 MenuItem.propTypes = {

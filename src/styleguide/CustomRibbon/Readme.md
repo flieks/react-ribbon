@@ -138,6 +138,8 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
     const [state, setState2] = useState({})
 
     const setState = (key, value) => {
+        console.log("setState", key, value)
+
         const oldValue = state[key]
         let currentState = { ...state }
 
@@ -151,10 +153,10 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
         setState2({ ...currentState })
     }
 
-    const property = () => { console.log("property") }
-    const run = () => { console.log("onClick") }
-    const blur = () => { console.log("onBlur") }
-    const propertyLocal = () => { console.log("propertyLocal") }
+    const property = (msg) => { console.log(msg) }
+    const run = (msg) => { console.log(msg) }
+    const blur = (msg) => { console.log(msg) }
+    const propertyLocal = (msg) => { console.log(msg) }
 
 <MainRibbon text={'Ribbon Title'}
         currentTab={activeTab}
@@ -208,13 +210,10 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                         active={true}
                         enabled={false}>
                         <PopupMenu>
-                            <MenuItem image={cut} text={'Cut Cells'} hotKey='Ctrl+X'
-                                enabled={property('e', 'ButtonCutCells')} />
-                            <MenuItem image={cutRows} text={'Cut Rows'}
-                                enabled={property('e', 'ButtonCutRows')} />
+                            <MenuItem image={cut} text={'Cut Cells'} hotKey='Ctrl+X'/>
+                            <MenuItem image={cutRows} text={'Cut Rows'}/>
                             <MenuSeparator />
-                            <MenuItem image={cutBranche} text={'Cut Task or Branch'} hotKey='Shift+F10'
-                                enabled={property('e', 'ButtonCutTaskOrBranch')} />
+                            <MenuItem image={cutBranche} text={'Cut Task or Branch'} hotKey='Shift+F10'/>
                         </PopupMenu>
                     </DropDownWithSmallImageWithText>
                     <DropDownWithSmallImageWithText
@@ -222,18 +221,14 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                         text={'Copy'}
                         active={false}>
                         <PopupMenu>
-                            <MenuItem image={copy} text={'Copy Cells'} hotKey='Ctrl+C'
-                                enabled={property('e', 'ButtonCopyCells')} />
-                            <MenuItem image={copyRows} text={'Copy Rows'}
-                                enabled={property('e', 'ButtonCopyRows')} />
+                            <MenuItem image={copy} text={'Copy Cells'} hotKey='Ctrl+C' />
+                            <MenuItem image={copyRows} text={'Copy Rows'}/>
                             <MenuSeparator />
-                            <MenuItem image={copyBranche} text={'Copy Task or Branch'} hotKey='Shift+F11'
-                                enabled={property('e', 'ButtonCopyTaskOrBranch')} />
+                            <MenuItem image={copyBranche} text={'Copy Task or Branch'} hotKey='Shift+F11'/>
                         </PopupMenu>
                     </DropDownWithSmallImageWithText>
                     <ButtonWithSmallImageWithText
-                        text={'Format Painter'} enabled={property('e', 'ToggleButtonFormatPainter')}
-                        image={formatPainter} />
+                        text={'Format Painter'} image={formatPainter} />
                 </RibbonColumn>
 
             </RibbonGroup>
@@ -251,7 +246,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                                 setState('ComboBoxFont', index)
                             }
                             }
-                        // events={{ onClick: setState({fontNameActive: !state.fontNameActive}), onBlur: setState({fontNameActive: !state.fontNameActive}) }}
                         />
                         <ComboBox
                             index={state["ComboBoxFontSize"] || 0}
@@ -283,58 +277,56 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                             events={{ onClick: () => setState('ToggleButtonInderline') }} />
                         <Separator />
                         <SplitButtonWithSmallImage
-                            image={state.borderImage || border}
-                            // active={true || state.borderActive}
-                            enabled={property('e', 'DropDownBorders')}
-                        // arrowEvents={{ onClick: setState("borderActive") }}
-                        >
+                            image={state.borderImage || border} >
                             <PopupMenu>
                                 <MenuSeparator text={'Borders'} />
-                                <MenuItem image={border1} text={'Bottom Border'} onClick={() => setState("borderImage", border1)}
-                                    enabled={property('e', 'ButtonBottomBorder')} />
-                                <MenuItem image={border2} text={'Top Border'} onClick={() => setState("borderImage", border2)}
-                                    enabled={property('e', 'ButtonTopBorder')} />
-                                <MenuItem image={border3} text={'Left Border'} onClick={() => setState("borderImage", border3)}
-                                    enabled={property('e', 'ButtonLeftBorder')} />
-                                <MenuItem image={border4} text={'Right Border'} onClick={() => setState("borderImage", border4)}
-                                    enabled={property('e', 'ButtonRightBorder')} />
+                                <MenuItem image={border1} text={'Bottom Border'} onClick={() => setState("borderImage", border1)} />
+                                <MenuItem image={border2} text={'Top Border'} onClick={() => setState("borderImage", border2)} />
+                                <MenuItem image={border3} text={'Left Border'} onClick={() => setState("borderImage", border3)} />
+                                <MenuItem image={border4} text={'Right Border'} onClick={() => setState("borderImage", border4)} />
                                 <MenuSeparator />
-                                <MenuItem image={border5} text={'No Border'} onClick={() => setState("borderImage", border5)}
-                                    enabled={property('e', 'ButtonNoBorder')} />
-                                <MenuItem image={border6} text={'All Border'} onClick={() => setState("borderImage", border6)}
-                                    enabled={property('e', 'ButtonAllBorders')} />
-                                <MenuItem image={border7} text={'Outside Border'} onClick={() => setState("borderImage", border7)}
-                                    enabled={property('e', 'ButtonOutsideBorders')} />
-                                <MenuItem image={border8} text={'Thick Box Border'} onClick={() => setState("borderImage", border8)}
-                                    enabled={property('e', 'ButtonThickBox')} />
+                                <MenuItem image={border5} text={'No Border'} onClick={() => setState("borderImage", border5)} />
+                                <MenuItem image={border6} text={'All Border'} onClick={() => setState("borderImage", border6)} />
+                                <MenuItem image={border7} text={'Outside Border'} onClick={() => setState("borderImage", border7)} enabled={false} />
+                                <MenuItem image={border8} text={'Thick Box Border'} onClick={() => setState("borderImage", border8)} />
                             </PopupMenu>
                         </SplitButtonWithSmallImage>
 
                         <Separator />
 
                         <SplitButtonWithSmallImage
-                            image={fill} color={propertyLocal('sc', 'DropDownPaintBackGround', 'backgroundColor', null, (v) => v === 'transparent' ? 'white' : v)}
-                            // active={state.fillActive}
-                            // events={{ onClick: run(this.fillApply) }}
-                            enabled={property('e', 'DropDownPaintBackGround')}>
+                            onClick= {() => {
+                                   console.log("fillColor clicked")
+                                }}
+                            image={fill} color={state.fillActive || "red"} >
                             <PopupMenu>
-                                <MenuItem image={fill} text={'Choose background-color'} events={{ onClick: run("chooseFillColor") }} />
+                                <MenuItem image={fill} text={'Choose background-color'} onClick= {() => {
+                                    let inp = document.getElementById('fillColorInput')
+                                    inp.click()
+                                }} />
                             </PopupMenu>
                         </SplitButtonWithSmallImage>
-                        <input id="fillColorInput" type="color" style={{ display: 'none' }} onChange={() => { }}></input>
+                        <input id="fillColorInput" type="color" style={{ display: 'none' }} onChange={(e) => {
+                            let color = e.target.value
+                            setState("fillActive", color)
+                         }}></input>
 
                         <SplitButtonWithSmallImage
-                            image={font} color={propertyLocal('sc', 'DropDownFontColor', 'font', 'color')}
-                            // active={state.fontActive}
-                            enabled={property('e', 'DropDownFontColor')}
-                            events={{ onClick: run("fontApply") }}
-                            // arrowEvents={{ onClick: run("fontClick"), onBlur: blur('fontActive') }}
-                            >
+                            onClick= {() => {
+                                   console.log("fontColor clicked")
+                                }}
+                            image={font} color={state.fontActive || "green"}>
                             <PopupMenu>
-                                <MenuItem image={font} text={'Choose font-color'} events={{ onClick: run("chooseFontColor") }} />
+                                <MenuItem image={font} text={'Choose font-color'} onClick= {() => {
+                                    let inp = document.getElementById('fontColorInput')
+                                    inp.click()
+                                }}/>
                             </PopupMenu>
                         </SplitButtonWithSmallImage>
-                        <input id="fontColorInput" type="color" style={{ display: 'none' }} onChange={() => { }}></input>
+                        <input id="fontColorInput" type="color" style={{ display: 'none' }} onChange={(e) => {
+                            let color = e.target.value
+                            setState("fontActive", color)
+                        }}></input>
                     </RibbonRow>
                 </RibbonColumn>
             </RibbonGroup>
@@ -348,32 +340,34 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                             <DropDownWithSmallImageWithText
                                 image={state.image || mergeCenter}
                                 text={state.text || "Merge & Center"}
-                                enabled={property('e', 'DropDownCenterAndMerge')}
-                                // events={{ onClick: run(mergeClick), onBlur: blur('mergeActive') }}
                                 >
                                 <PopupMenu>
                                     <MenuItem image={mergeCenter} text={'Merge & Center'}
                                         onClick={() => {
-                                            setState("text", "Merge & Center")
-                                            setState("image", mergeCenter)
+                                            console.log("Merge & Center")
+                                            // setState("text", "Merge & Center")
+                                            // setState("image", mergeCenter)
                                         }
                                     }/>
                                     <MenuItem image={mergeAcross} text={'Merge Across'}
                                         onClick={() => {
-                                            setState("text", "Merge Across")
-                                            setState("image", mergeAcross)
+                                            console.log("Merge Across")
+                                            // setState("text", "Merge Across")
+                                            // setState("image", mergeAcross)
                                         }
                                     }/>
                                     <MenuItem image={mergeCells} text={'Merge Cells'}
                                         onClick={() => {
-                                            setState("text", "Merge Cells")
-                                            setState("image", mergeCells)
+                                            console.log("Merge Cells")
+                                            // setState("text", "Merge Cells")
+                                            // setState("image", mergeCells)
                                         }
                                     }/>
                                     <MenuItem image={unmergeCells} text={'Unmerge Cells'}
                                         onClick={() => {
-                                            setState("text", "Unmerge Cells")
-                                            setState("image", unmergeCells)
+                                            console.log("Unmerge Cells")
+                                            // setState("text", "Unmerge Cells")
+                                            // setState("image", unmergeCells)
                                         }
                                     }/>
                                 </PopupMenu>
@@ -404,8 +398,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
             <Separator />
           <RibbonGroup text="Edit">
             <DropDownWithLargeImageWithText text="Selection" image={selection}
-            //  active={state.editSelectionActive}
-            //   events={{onClick: run(editSelectionClick), onBlur: blur('editSelectionActive')}}
               >
               <PopupMenu>
                 <MenuItem image={selectionEdit} text='Edit Selection...' hotKey='Ctrl+F4' />
@@ -417,8 +409,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
             </DropDownWithLargeImageWithText>
             <Separator />
             <SplitButton text="Insert" image={insert}
-            //    active={state.editInsertActive}
-            //   arrowEvents={{onClick: run(editInsertClick), onBlur: blur('editInsertActive')}}
               >
               <PopupMenu>
                 <MenuItem image={insert} text='Insert Cells' />
@@ -433,13 +423,11 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
               </PopupMenu>
             </SplitButton>
             <SplitButton text="Delete" image={deleteMain}
-            //   active={state.editDeleteActive}
-            //   arrowEvents={{onClick: run(editDeleteClick), onBlur: blur('editDeleteActive')}}
               >
               <PopupMenu>
-                <MenuItem image={deleteMain} text='Delete Cells' />
+                <MenuItem image={deleteMain} text='Delete Cells' enabled={false}/>
                 <MenuItem image={deleteHyper} text='Delete Hyperlink' />
-                <MenuItem image={deleteColumns} text='Delete Columns' />
+                <MenuItem image={deleteColumns} text='Delete Columns' enabled={false}/>
                 <MenuSeparator text='Clear' />
                 <MenuItem image={deleteClearCells} text='Clear Cells Content' hotKey='Del' />
                 <MenuSeparator text='Tasks & Branches' />
@@ -447,8 +435,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
               </PopupMenu>
             </SplitButton>
             <DropDownWithLargeImageWithText text="Format" image={format}
-            //   active={state.editFormatActive}
-            //   events={{onClick: run(editFormatClick), onBlur: blur('editFormatActive')}}
               >
               <PopupMenu>
                 <MenuItem image={formatRowHeight} text='Row Height' />
@@ -458,8 +444,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
                 <MenuItem image={formatColumnDefaultWidth} text='Default Width' />
                 <MenuSeparator text='Visibility' />
                 <MenuDropDown text='Hide & Unhide'
-                //   active={state.editFormatSubActive}
-                //   events={{onClick: run(editFormatSubClick), onBlur: blur('editFormatSubActive')}}
                   >
                   <MenuItem text='Hide Rows' />
                   <MenuItem text='Hide Columns' />
@@ -486,7 +470,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 
             <SplitButton text="Search"
               active={state.navSearchActive} image={search}
-            //   arrowEvents={{onClick: run(this.navSearchClick), onBlur: blur('navSearchActive')}}
               >
               <PopupMenu>
                 <MenuItem image={search} text='Find...' hotKey='Ctrl+F' />
@@ -495,7 +478,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
             </SplitButton>
             <SplitButton text="Bookmarks" image={bookmarks}
               active={state.navBookmarksActive}
-            //   arrowEvents={{onClick: run(this.navBookmarksClick), onBlur: blur('navBookmarksActive')}}
               >
               <PopupMenu>
                 <MenuItem image={bookmarkList} events={{onClick: () => getForm('frmBookmarkList')}}
@@ -507,7 +489,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 
             <DropDownWithLargeImageWithText text="Tasks" image={tasks}
               active={state.navTasksActive}
-            //   events={{onClick: run(this.navTasksClick), onBlur: blur('navTasksActive')}}
               >
               <PopupMenu>
                 <MenuItem image={taskExpand} text='Expand All Branches' />
@@ -522,7 +503,6 @@ const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72]
 
             <DropDownWithLargeImageWithText text="Numbering" image={numbering}
               active={state.navNumberingActive}
-            //   events={{onClick: run(this.navNumberingClick), onBlur: blur('navNumberingActive')}}
               >
               <PopupMenu>
                 <MenuItem image={numbering} text='Number Current Branch' />

@@ -2,25 +2,16 @@ import styles from './index.css'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class PopupMenu extends Component {
-  // shouldComponentUpdate (nextProps) {
-  //   let prevString = JSON.stringify(this.props)
-  //   let nextString = JSON.stringify(nextProps)
-  //   return prevString !== nextString
-  // }
+export default function PopupMenu(props) {
+    const isEnable = props.enabled
 
-  render () {
-    const isEnable = this.props.enabled
-    // const isActive = this.props.active
-
-    const events = isEnable ? this.props.events : {}
+    const events = isEnable ? props.events : {}
 
     return (
       <div className={styles.menu + ' ' + (isEnable ? '' : styles.enable)} {...events}>
-        {this.props.children}
+        {props.children}
       </div>
     )
-  }
 }
 
 PopupMenu.propTypes = {

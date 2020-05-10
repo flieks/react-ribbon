@@ -4,12 +4,6 @@ import { detectBlur } from '../helpers'
 import PropTypes from 'prop-types'
 
 export default function SplitButtonWithSmallImage(props) {
-  // shouldComponentUpdate (nextProps) {
-  //   let prevString = JSON.stringify(props)
-  //   let nextString = JSON.stringify(nextProps)
-  //   return prevString !== nextString
-  // }
-
     const [isActive, setIsActive] = useState(false)
 
     const palette = props.palette
@@ -31,26 +25,30 @@ export default function SplitButtonWithSmallImage(props) {
     const buttonEvents = props.buttonEvents
     const arrowEvents = props.arrowEvents
 
-    // if (!props.isVisible) {
-    //   return null
-    // }
     return (
       <div className={styles.splitBtn + ' ' + (isActive ? styles.active : '') + ' ' + (isEnable ? '' : styles.enable)}
       onBlur={() => {
         setIsActive(false)
       }}
       onClick={() => {
-        setIsActive(true)
+        if(props.onClick) {
+          props.onClick()
+        }
       }}>
         <div className={styles.image} style={{backgroundImage}} {...buttonEvents}>
           <div style={{borderBottom, marginTop}} ></div>
         </div>
-        <div className={styles.arrow} tabIndex={-1} {...arrowEvents}>
+        <div className={styles.arrow} tabIndex={-1}
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsActive(true)
+          }}>
         </div>
-        {isActive && <div className={styles.list} onClick={(e) => {
-          e.stopPropagation()
-          setIsActive(false)
-        }}>
+        {isActive && <div className={styles.list}
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsActive(false)
+          }}>
           {children}
         </div>}
       </div>

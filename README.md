@@ -90,3 +90,7 @@ RibbonGroup properties
 * children of type SplitButton, RibbonColumn, RibbonRow, DropDownWithLargeImageWithText, Separator, CheckBox, DropDown, ButtonWithSmallImageWithText, ButtonWithLargeImageWithText, PopupMenu, MenuItem, MenuToggleItem, MenuSeparator, MenuDropDown
 
 RibbonGroup Children: (to document!)
+
+All components have an onClick and an enabled prop
+
+Check [Live styleguide](https://flieks.github.io/react-ribbon/)
