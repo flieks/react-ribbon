@@ -1,7 +1,7 @@
 var path = require("path");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   output: {
     // pathinfo: true,
@@ -9,7 +9,7 @@ module.exports = {
     filename: "index.js",
     libraryTarget: "commonjs2"
   },
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },

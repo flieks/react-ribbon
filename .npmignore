@@ -1,6 +1,6 @@
 # .npmignore
-node_modules
-images
-src/styleguide
-docs
-styleguide.config.js
+node_modules/
+images/
+src/styleguide/**/*
+docs/
+src/**/*

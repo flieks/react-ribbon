@@ -1,6 +1,6 @@
 {
     "name": "@flieks/react-ribbon",
-    "version": "0.8.5",
+    "version": "0.8.7",
     "license": "MIT",
     "author": "Felix De Lille <info.appbuilders.be> (https://github.com/flieks)",
     "main": "./build/index.js",
@@ -31,7 +31,7 @@
         "url-loader": "^4.1.0"
     },
     "scripts": {
-        "build": "webpack",
+        "build": "webpack --display-modules",
         "styleguide": "styleguidist server",
         "styleguide:build": "styleguidist build"
     }
